@@ -100,30 +100,32 @@ class DbClass {
                             standalone="yes"
                             indent="yes"/>
                     <xsl:template match="/">
+                    <div class="table-responsive">
                         <table  class="table table-hover table-bordered">
-                            <tr>
-                                <th>id</th>
-                                <th>name</th>
-                                <th>type</th>
-                                <th>extension</th>
-                            </tr>
-                            <xsl:for-each select="files/file">
                                 <tr>
-                                    <td>
-                                        <xsl:value-of select="id"/>
-                                    </td>
-                                    <td>
-                                        <xsl:value-of select="name"/>
-                                    </td>
-                                    <td>
-                                        <xsl:value-of select="type"/>
-                                    </td>
-                                    <td>
-                                        <xsl:value-of select="extension"/>
-                                    </td>
+                                    <th>id</th>
+                                    <th>name</th>
+                                    <th>type</th>
+                                    <th>extension</th>
                                 </tr>
-                            </xsl:for-each>
-                        </table>
+                                <xsl:for-each select="files/file">
+                                    <tr>
+                                        <td>
+                                            <xsl:value-of select="id"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="name"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="type"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="extension"/>
+                                        </td>
+                                    </tr>
+                                </xsl:for-each>
+                            </table>
+                        </div>
                     </xsl:template>
                 </xsl:stylesheet>';
         // this is the style of the files table
@@ -169,22 +171,24 @@ class DbClass {
                  standalone="yes"
                  indent="yes"/>
          <xsl:template match="/">
-             <table  class="table table-hover table-bordered">
-                 <tr>
-                    <th>Extension</th>
-                     <th>Size</th>
-                 </tr>
-                 <xsl:for-each select="extensions/extension">
-                     <tr>
-                         <td>
-                             <xsl:value-of select="extension"/>
-                         </td>
-                         <td>
-                            <xsl:value-of select="size"/>
-                        </td>
-                     </tr>
-                 </xsl:for-each>
-             </table>
+             <div class="table-responsive">
+                <table  class="table table-hover table-bordered ">
+                    <tr>
+                        <th>Extension</th>
+                        <th>Size</th>
+                    </tr>
+                    <xsl:for-each select="extensions/extension">
+                        <tr>
+                            <td>
+                                <xsl:value-of select="extension"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="size"/>
+                            </td>
+                        </tr>
+                    </xsl:for-each>
+                </table>
+             </div>
          </xsl:template>
      </xsl:stylesheet>';
         // this is the style of the files types table
