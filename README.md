@@ -1,4 +1,4 @@
-# pruebaAZDigital
+# Documentation 
 DESCRIPCIÓN:
 
 En este repo se encuentra un metodo para consumir Soap y mostrarlo como reporte, se utilizaron plantillas  XSLT para el proceamiento de los xml
