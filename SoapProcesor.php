@@ -60,6 +60,7 @@ class SoapProcesor {
                 $type = $arrayTypes[$ext]; // get the extention type
             } else {
                 $type = "unknown"; // if extension is unknown 
+                $ext= "unknown";
             }
 
             $this->db->setFile($id, $name, $ext, $type); // save to database
