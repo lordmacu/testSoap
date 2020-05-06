@@ -17,10 +17,14 @@
         </button>
     </nav>
     <div class="container">
-        <div class="mt-4">
-            <button class="btn btn-success saveButton" onclick="saveFiles()">Save Files from Soap</button>
-            <button class="btn btn-success" onclick="loadFiles()">Get all files</button>
-            <button class="btn btn-success" onclick="getAllExtensions()">Get all Extensions</button>
+        <div class="row">
+        <div class="col-12 col-lg-6 col-md-6  mt-4">
+                <button class="btn btn-success saveButton" onclick="saveFiles()">Save Files from Soap</button>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6 mt-4 pull-right">
+                <button class="btn btn-success" onclick="loadFiles()">Get all files</button>
+                <button class="btn btn-success" onclick="getAllExtensions()">Get all Extensions</button>
+            </div>
         </div>
         <div class="card mt-5 loading">
             <div class="card-body text-center">

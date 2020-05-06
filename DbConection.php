@@ -100,19 +100,15 @@ class DbClass {
                             standalone="yes"
                             indent="yes"/>
                     <xsl:template match="/">
-                    <div class="table-responsive">
+                    <div class="table-responsive-md">
                         <table  class="table table-hover table-bordered">
                                 <tr>
-                                    <th>id</th>
-                                    <th>name</th>
-                                    <th>type</th>
-                                    <th>extension</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Extension</th>
                                 </tr>
                                 <xsl:for-each select="files/file">
                                     <tr>
-                                        <td>
-                                            <xsl:value-of select="id"/>
-                                        </td>
                                         <td>
                                             <xsl:value-of select="name"/>
                                         </td>
@@ -171,7 +167,7 @@ class DbClass {
                  standalone="yes"
                  indent="yes"/>
          <xsl:template match="/">
-             <div class="table-responsive">
+             <div class="table-responsive-md">
                 <table  class="table table-hover table-bordered ">
                     <tr>
                         <th>Extension</th>

@@ -1,6 +1,10 @@
 .no-results-files{
     display:none
 }
-.loading{
-    display:none
+  
+
+td{
+    overflow-wrap: anywhere;
 }
+
+ 
