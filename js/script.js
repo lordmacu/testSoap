@@ -1,7 +1,7 @@
 function loadFiles() {
     // show files
     $(".loading").show();
-    $.ajax('/routes.php?action=getAllfiles', {
+    $.ajax('/loadReports.php?action=getrAllfiles', {
         type: 'GET', // http method
         success: function (data, status, xhr) {
             var data = JSON.parse(data);
@@ -29,7 +29,7 @@ function saveFiles() {
     $(".loading").show();
     $(".content").hide();
 
-    $.ajax('/routes.php?action=saveFiles', {
+    $.ajax('/loadReports.php?action=saveFiles', {
         type: 'GET', // http method
         success: function (data, status, xhr) {
             loadFiles(); // when the system import files show it
@@ -47,7 +47,7 @@ function saveFiles() {
 function getAllExtensions() {
     /// get extentions by ajax
     $(".loading").show();
-    $.ajax('/routes.php?action=getAllExtensions', {
+    $.ajax('/loadReports.php?action=getAllExtensions', {
         type: 'GET', // http method
         success: function (data, status, xhr) {
             var data = JSON.parse(data);
