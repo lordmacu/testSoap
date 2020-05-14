@@ -47,9 +47,7 @@ class fileController{
 
     	$files = $this->findFiles(array("Condiciones" => array("Condicion" => array("Tipo" => "FechaInicial", "Expresion" => "2019-07-01 00:00:00")))); // prepare query
 
-        for ($i = 0; $i < count($files->Archivo); $i++) {
-
-            $arrayTypes = array(
+        $arrayTypes = array(
                 "pdf" => "Portable Document Format File",
                 "xml" => "XML File",
                 "html" => "Hypertext Markup Language File",
@@ -69,6 +67,10 @@ class fileController{
                 "url" => "Internet Shortcut",
                 "xls" => "Excel Spreadsheet"
             );
+
+        for ($i = 0; $i < count($files->Archivo); $i++) {
+
+           
             //maping know extentions
             
             $name = $files->Archivo[$i]->Nombre;
