@@ -1,0 +1,10 @@
+RewriteEngine on
+RewriteBase /
+
+# Rewrites all URLS without blog in them
+RewriteCond %{REQUEST_URI} !^/public/
+ 
+# Rewrite all those to insert /folder
+RewriteCond %{REQUEST_URI} !/(routes)\.php [NC]
+
+RewriteRule  ^(.*)$ /public/$1 [L]

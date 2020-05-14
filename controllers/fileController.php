@@ -1,15 +1,33 @@
-<?php
-
-class SoapProcesor {
-
-    protected $db;
-
-    function __construct($db) {
-        $this->db = $db;
-    }
+<?php 
+ 
+class fileController{
 
     private const WSDServices = "http://test.analitica.com.co/AZDigital_Pruebas/WebServices/ServiciosAZDigital.wsdl";
     private const UrlServices = "http://test.analitica.com.co/AZDigital_Pruebas/WebServices/SOAP/index.php";
+
+
+	public function loadFilesReport(){
+
+        $helper= new Helpers();
+        $file= new File();
+		 
+		$loadFilesReport = $file->loadFilesReport();
+
+		$data=[];
+        
+        $buildXml = $helper->buildXml($loadFilesReport,"file","files");  // building xml
+        $result=$buildXml["xml"];
+        $size=$buildXml["size"];
+
+        $theme=$helper->buildTheme(array("name","type","extension"),"files/file");  // building theme
+       
+        $getXmlResult= $helper->getXmlResult($result,$theme,$size);
+
+		echo   json_encode($getXmlResult);
+	}
+ 
+
+
 
     public function findFiles($params) {
 
@@ -24,9 +42,12 @@ class SoapProcesor {
         }
     }
 
-    public function saveFiles($results) {
+    public function saveFiles() {
+        $file= new File();
 
-        for ($i = 0; $i < count($results->Archivo); $i++) {
+    	$files = $this->findFiles(array("Condiciones" => array("Condicion" => array("Tipo" => "FechaInicial", "Expresion" => "2019-07-01 00:00:00")))); // prepare query
+
+        for ($i = 0; $i < count($files->Archivo); $i++) {
 
             $arrayTypes = array(
                 "pdf" => "Portable Document Format File",
@@ -50,8 +71,8 @@ class SoapProcesor {
             );
             //maping know extentions
             
-            $name = $results->Archivo[$i]->Nombre;
-            $id = $results->Archivo[$i]->Id;
+            $name = $files->Archivo[$i]->Nombre;
+            $id = $files->Archivo[$i]->Id;
             //get name and id
 
             $ext = preg_replace('/^.*\.([^.]+)$/D', '$1', $name); // get extension 
@@ -63,12 +84,7 @@ class SoapProcesor {
                 $ext= "unknown";
             }
 
-            $this->db->setFile($id, $name, $ext, $type); // save to database
+            $file->setFile($id, $name, $ext, $type); // save to database
         }
-
-        $this->db->disconnect(); // disconect to database
-    }
-
+     }
 }
-
-?>
